@@ -1,0 +1,10 @@
+/home/anezka/Dev/razor1/bin/Debug/netcoreapp2.0/razor1.deps.json
+/home/anezka/Dev/razor1/bin/Debug/netcoreapp2.0/razor1.runtimeconfig.json
+/home/anezka/Dev/razor1/bin/Debug/netcoreapp2.0/razor1.runtimeconfig.dev.json
+/home/anezka/Dev/razor1/bin/Debug/netcoreapp2.0/razor1.dll
+/home/anezka/Dev/razor1/bin/Debug/netcoreapp2.0/razor1.pdb
+/home/anezka/Dev/razor1/obj/Debug/netcoreapp2.0/razor1.csproj.CoreCompileInputs.cache
+/home/anezka/Dev/razor1/obj/Debug/netcoreapp2.0/razor1.AssemblyInfoInputs.cache
+/home/anezka/Dev/razor1/obj/Debug/netcoreapp2.0/razor1.AssemblyInfo.cs
+/home/anezka/Dev/razor1/obj/Debug/netcoreapp2.0/razor1.dll
+/home/anezka/Dev/razor1/obj/Debug/netcoreapp2.0/razor1.pdb
