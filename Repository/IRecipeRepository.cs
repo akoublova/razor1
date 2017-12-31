@@ -17,6 +17,9 @@ namespace razor1.Repository {
 
         void RemoveAllRecipes ();
 
+        IList<string> GetTags();
+        IList<string> GetIngredients();
+
         // TODO update
     }
 }

@@ -1,0 +1,30 @@
+﻿@page
+@model RecipeDetailModel
+@{
+    ViewData["Title"] = "Contact";
+}
+
+@if (Model.Recipe == null) {
+    <h3>Error</h3>
+    <span>Recipe not found</span>
+}
+else {
+    <h3>@Model.Recipe.Title</h3>
+
+    <div>
+            <div>@Model.Recipe.ShortDescription</div>
+            <div>@Model.Recipe.PrepTime</div>
+            <div>Ingredients:
+                @foreach (var ingredient in Model.Recipe.Ingredients) {
+                    <span>@ingredient</span>
+                }
+            </div>
+            <div>@Model.Recipe.Method</div>
+            <div>Tags:
+                @for (int i=0;i<Model.Recipe.Tags.Count ;i++)
+            {
+                    <span>@Model.Recipe.Tags[i]</span>
+            }
+            </div>
+    </div>
+}

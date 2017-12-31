@@ -1,35 +1,33 @@
-body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-}
+  body {
+    padding-top: 5rem;
+  }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-}
+  .starter-template {
+    padding: 3rem 1.5rem;
+    padding-top: 10px;
+  }
 
-/* Carousel */
-.carousel-caption p {
-    font-size: 20px;
-    line-height: 1.4;
-}
+  .row {
+    margin-bottom: 1rem;
+  }
 
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
-    width: 100%;
-}
+  .row .row {
+    margin-top: 1rem;
+    margin-bottom: 0;
+  }
 
-/* QR code generator */
-#qrCode {
-    margin: 15px;
-}
+  [class*="col-"] {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: rgba(86, 61, 124, .15);
+    border: 1px solid rgba(86, 61, 124, .2);
+  }
 
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
-    /* Hide captions */
-    .carousel-caption {
-        display: none;
-    }
-}
+  .btn {
+    margin-top: 1rem;   
+  }
+  
+  hr {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }

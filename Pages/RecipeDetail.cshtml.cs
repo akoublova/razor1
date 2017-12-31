@@ -7,16 +7,16 @@ using razor1.Repository;
 
 namespace razor1.Pages
 {
-    public class ContactModel : PageModel
+    public class RecipeDetailModel : PageModel
     {
-        public string Message { get; set; }
+        public Recipe Recipe { get; set; }
 
-        public void OnGet()
+        public void OnGet(string id)
         {
+            if (id == null)
+                return;
             var repo = new RecipeRepository();
-            var coll = repo.GetAllRecipes();
-
-            Message = string.Join("\n", coll.Select(recipe => recipe.Id));
+            Recipe = repo.GetRecipe(id);
         }
     }
 }

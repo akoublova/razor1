@@ -10,27 +10,34 @@ namespace razor1.Pages
 {
     public class NewRecipeModel : PageModel
     {
-        public string Message { get; set; }
+        public NewRecipeModel()
+        {
+            Repository = new RecipeRepository();
+        }
+
+        private IRecipeRepository Repository { get; set; }
+
+        public IList<string> Tags { get; set; }
+
+        public IList<string> Ingredients { get; set; }
+
+        public Recipe Recipe { get; set; }
 
         public void OnGet()
         {
-            Message = "Your application description page.";
+            Tags = Repository.GetTags();
+            Ingredients = Repository.GetIngredients();
         }
 
-        [BindProperty]
-        public Recipe Recipe { get; set; }
-
-        public async Task<IActionResult> OnPostAsync()
+        public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            var recipeRepo = new RecipeRepository();
-
-            recipeRepo.AddRecipe(Recipe);
-            return RedirectToPage("/Index");
+            var addedRecipe = Repository.AddRecipe(Recipe);     
+            return RedirectToPage($"/RecipeDetail?id={addedRecipe.Id}");
         }
     }
 }

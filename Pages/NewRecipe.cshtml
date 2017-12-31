@@ -1,21 +1,71 @@
 ﻿@page
 @model NewRecipeModel
 @{
-    ViewData["Title"] = "About";
+    ViewData["Title"] = "New recipe";
 }
 <h2>@ViewData["Title"]</h2>
-<h3>@Model.Message</h3>
+<div asp-validation-summary="All"></div>
+<form method="POST">
+    <div class="form-group">
+        <label for="Recipe.Title">Title</label>
+        <input type="text" class="form-control" asp-for="Recipe.Title">
+    </div>
+    <div class="form-group">
+        <label for="Recipe.ShortDescription">Short description</label>
+        <input type="text" class="form-control" asp-for="Recipe.ShortDescription">
+    </div>
+    <div class="form-group">
+        <label for="Recipe.PrepTime">Preparation time</label>
+        <input class="form-control" asp-for="Recipe.PrepTime">
+    </div>
+    <div class="form-group">
+        <label for="Recipe.Ingredients">Ingredients</label>
+        <input type="text" class="form-control" asp-for="Recipe.Ingredients">
+        <button type="button" class="btn btn-secondary" id="addField1">+</button>
+    </div>
+    <div class="form-group">
+        <label for="Recipe.Method">Method</label>
+        <textarea class="form-control" rows="3" asp-for="Recipe.Method"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="Recipe.Tags">Tags</label>
+        <input type="text" class="form-control" asp-for="Recipe.Tags">
+        <button type="button" class="btn btn-secondary" id="addField2">+</button>
+    </div>
+    <input type="submit" class="btn btn-success"/>
+</form>
+<script type="text/javascript">
+    $("button[id^='addField'").click(function() {
+        var input = $(this).prev();
+        var inputId = input.attr('id');
+        var newInput = input.clone();
+        newInput.attr('id', inputId + "1");
+        newInput.appendTo(input.parent());
+        $(this).appendTo($(this).parent());
+        autocomplete();
+    });
 
-    <p>
-        Enter your name.
-    </p>
-    <div asp-validation-summary="All"></div>
-    <form method="POST">
-        <div>Title: <input asp-for="Recipe.Title" /></div>
-        <div>Short description: <input asp-for="Recipe.ShortDescription" /></div>
-        <div>Preparation time: <input asp-for="Recipe.PrepTime" /></div>
-        <div>Ingredients: <input asp-for="Recipe.Ingredients" /></div>
-        <div>Method: <input asp-for="Recipe.Method" /></div>
-        <div>Tags: <input asp-for="Recipe.Tags" /></div>
-        <input type="submit" />
-    </form>
+    var availableTags = [
+    @foreach (var tag in Model.Tags){
+    <text>"@tag",
+    </text>
+    }];
+
+    var availableIngredients = [
+    @foreach (var ingredient in Model.Ingredients){
+    <text>"@ingredient",
+    </text>
+    }];
+
+    function autocomplete() {
+        $("input[id^='Recipe_Tags'").autocomplete({
+        source: availableTags
+        });
+
+        $("input[id^='Recipe_Ingredients'").autocomplete({
+        source: availableIngredients
+        });
+    }
+
+    autocomplete();
+</script>
