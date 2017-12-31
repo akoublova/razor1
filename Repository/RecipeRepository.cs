@@ -1,9 +1,10 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
 
-namespace razor1.Model
+namespace razor1.Repository
 {
     public class RecipeRepository : IRecipeRepository
     {
@@ -16,6 +17,7 @@ namespace razor1.Model
 
         public Recipe AddRecipe(Recipe recipe)
         {
+            recipe.Created = DateTime.Now;
             dbContext.Recipes.InsertOne(recipe);
             return recipe;
         }

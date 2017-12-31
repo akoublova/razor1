@@ -11,14 +11,17 @@ using MongoDB.Bson;
         [BsonIgnore]
         public string Id {get {return ObjectId.ToString();}}
 
-        [BsonElement("abc")]
-        public double Abcd {get; set;}
+        public string Title {get; set;}
 
-        /* [BsonId]
-        public int Id { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
+        public string ShortDescription { get; set; }
+
+        public TimeSpan PrepTime { get; set; }
+
         public List<string> Ingredients { get; set; }
+
+        public string Method { get; set; }
+
         public DateTime Created { get; set; }
-        public List<string> Tags { get; set; } */
+
+        public List<string> Tags { get; set; }
     }

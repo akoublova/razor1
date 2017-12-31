@@ -1,0 +1,21 @@
+﻿@page
+@model NewRecipeModel
+@{
+    ViewData["Title"] = "About";
+}
+<h2>@ViewData["Title"]</h2>
+<h3>@Model.Message</h3>
+
+    <p>
+        Enter your name.
+    </p>
+    <div asp-validation-summary="All"></div>
+    <form method="POST">
+        <div>Title: <input asp-for="Recipe.Title" /></div>
+        <div>Short description: <input asp-for="Recipe.ShortDescription" /></div>
+        <div>Preparation time: <input asp-for="Recipe.PrepTime" /></div>
+        <div>Ingredients: <input asp-for="Recipe.Ingredients" /></div>
+        <div>Method: <input asp-for="Recipe.Method" /></div>
+        <div>Tags: <input asp-for="Recipe.Tags" /></div>
+        <input type="submit" />
+    </form>
