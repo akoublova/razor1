@@ -8,10 +8,14 @@ using MongoDB.Bson.Serialization.Attributes;
 public interface IRecipeRepository
 {
     IList<Recipe> GetAllRecipes();
-    Task<Recipe> GetRecipe(string id);
-    Task AddRecipe(Recipe item);
-    Task<bool> RemoveRecipe(string id);
-    Task<bool> UpdateRecipe(string id, string body);
-    Task<bool> UpdateAllRecipes(string id, string body);
-    Task<bool> RemoveAllRecipe();
+
+    Recipe GetRecipe(string id);
+
+    Recipe AddRecipe(Recipe recipe);
+
+    bool RemoveRecipe(string id);
+    
+    void RemoveAllRecipes();
+
+    // TODO update
 }

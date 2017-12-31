@@ -14,9 +14,10 @@ namespace razor1.Model
             dbContext = new MongoDBContext();
         }
 
-        public void AddRecipe(Recipe item)
+        public Recipe AddRecipe(Recipe recipe)
         {
-            dbContext.Recipes.InsertOne(item);
+            dbContext.Recipes.InsertOne(recipe);
+            return recipe;
         }
 
         public IList<Recipe> GetAllRecipes()
@@ -37,11 +38,6 @@ namespace razor1.Model
         public bool RemoveRecipe(string id)
         {
             return dbContext.Recipes.DeleteOne(recipe => recipe.Id == id).DeletedCount == 1;
-        }
-
-        public Task<bool> UpdateRecipe(Recipe newRecipe)
-        {
-            return dbContext.Recipes.UpdateOne(recipe => recipe.Id == newRecipe.Id, newRecipe);
         }
     }
 }
