@@ -14,8 +14,8 @@ public interface IRecipeRepository
     Recipe AddRecipe(Recipe recipe);
 
     bool RemoveRecipe(string id);
-    
-    void RemoveAllRecipes();
+
+    void RemoveAllRecipes(); 
 
     // TODO update
 }
