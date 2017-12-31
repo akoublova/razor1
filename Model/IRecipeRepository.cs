@@ -2,15 +2,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using MongoDB.Driver;
 using MongoDB.Bson.Serialization.Attributes;
 
 public interface IRecipeRepository
 {
-    Task<IEnumerable<Recipe>> GetAllNotes();
-    Task<Recipe> GetNote(string id);
-    Task AddNote(Recipe item);
-    Task<bool> RemoveNote(string id);
-    Task<bool> UpdateNote(string id, string body);
-    Task<bool> UpdateNoteDocument(string id, string body);
-    Task<bool> RemoveAllNotes();
+    IList<Recipe> GetAllRecipes();
+    Task<Recipe> GetRecipe(string id);
+    Task AddRecipe(Recipe item);
+    Task<bool> RemoveRecipe(string id);
+    Task<bool> UpdateRecipe(string id, string body);
+    Task<bool> UpdateAllRecipes(string id, string body);
+    Task<bool> RemoveAllRecipe();
 }

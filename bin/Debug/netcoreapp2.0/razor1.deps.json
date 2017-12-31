@@ -24,6 +24,8 @@
       "razor1/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.All": "2.0.0",
+          "Microsoft.Extensions.Options": "2.0.0",
+          "Microsoft.Extensions.Options.ConfigurationExtensions": "2.0.0",
           "Microsoft.NETCore.App": "2.0.0",
           "MongoDB.Driver": "2.4.4",
           "System.Collections": "4.3.0"

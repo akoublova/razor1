@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using razor1.Model;
 
 namespace razor1.Pages
 {
@@ -12,7 +13,10 @@ namespace razor1.Pages
 
         public void OnGet()
         {
-            Message = "Your contact page.";
+            var repo = new RecipeRepository();
+            var coll = repo.GetAllRecipes();
+
+            Message = string.Join("\n", coll.Select(recipe => recipe.Id));
         }
     }
 }
