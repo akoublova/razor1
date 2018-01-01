@@ -20,7 +20,13 @@
     </div>
     <div class="form-group">
         <label for="Recipe.Ingredients">Ingredients</label>
-        <input type="text" class="form-control" asp-for="Recipe.Ingredients">
+        <!-- @foreach (var ingredient in Model.Recipe.Ingredients)
+        {
+            <div class="input-group">
+                <input type="text" class="form-control" asp-for="@ingredient.Name" placeholder="Ingredient">
+                <input type="text" class="form-control" asp-for="@ingredient.Quantity" placeholder="Quantity">
+            </div>
+        } -->
         <button type="button" class="btn btn-secondary" id="addField1">+</button>
     </div>
     <div class="form-group">

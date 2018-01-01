@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
+using razor1.Model;
 
 namespace razor1.Repository
 {
@@ -43,39 +45,14 @@ namespace razor1.Repository
             return dbContext.Recipes.DeleteOne(recipe => recipe.Id == id).DeletedCount == 1;
         }
 
-        Recipe IRecipeRepository.AddRecipe(Recipe recipe)
-        {
-            throw new NotImplementedException();
-        }
-
-        IList<Recipe> IRecipeRepository.GetAllRecipes()
-        {
-            throw new NotImplementedException();
-        }
-
-        IList<string> IRecipeRepository.GetIngredients()
+        public IList<string> GetIngredients()
         {
             return dbContext.Recipes.Distinct<string>("Ingredients", new BsonDocument()).ToList();
         }
 
-        Recipe IRecipeRepository.GetRecipe(string id)
-        {
-            throw new NotImplementedException();
-        }
-
-        IList<string> IRecipeRepository.GetTags()
+        public IList<string> GetTags()
         {
             return dbContext.Recipes.Distinct<string>("Tags", new BsonDocument()).ToList();
-        }
-
-        void IRecipeRepository.RemoveAllRecipes()
-        {
-            throw new NotImplementedException();
-        }
-
-        bool IRecipeRepository.RemoveRecipe(string id)
-        {
-            throw new NotImplementedException();
         }
     }
 }

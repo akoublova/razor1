@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Driver;
+using razor1.Model;
 
 namespace razor1.Repository {
     public interface IRecipeRepository {
@@ -18,8 +19,7 @@ namespace razor1.Repository {
         void RemoveAllRecipes ();
 
         IList<string> GetTags();
+        
         IList<string> GetIngredients();
-
-        // TODO update
     }
 }
